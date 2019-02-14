@@ -1,0 +1,14 @@
+stages:
+  - deploy
+
+deploy_dev:
+  stage: deploy
+  image: docker:latest
+  services:
+    - docker:dind
+  only:
+    - master
+  script:
+    - apk add --update curl git ruby-rdoc ruby-dev
+    - gem install dpl
+    - dpl --provider=heroku --app=travaxy --api-key=$HEROKU_API_KEY

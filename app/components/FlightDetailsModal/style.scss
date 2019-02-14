@@ -1,0 +1,168 @@
+.modal{
+	.remove-margins{
+		margin: 0 !important;
+	}
+    .close{
+        position: absolute;
+        top: 10px;
+        right: 0;
+        z-index: 1000;
+        color: #FFFFFF;
+    }
+    &.background{
+        background: rgba(1, 13, 36, .7);
+    }
+    .modal-dialog {
+        max-width: 867px;
+    }
+    .modal-content{
+        border: none;
+        border-radius: 0px;
+        button.btn-blue{
+            padding: 10px 35px;
+            cursor: pointer;
+            outline: none;
+        }
+        .modal-body{
+            width: 100%;
+            padding: 0;
+            .left{
+                background: #FFFFFF;
+                font-family: Assistant;
+                font-style: normal;
+                font-weight: normal;
+                line-height: normal;
+                color: #000000;
+                .title{
+                    font-size: 20px;
+                }
+                .outbound{
+                    height: 350px;
+                    border-bottom: 1px solid #EBEBEB;
+                }
+                .flight-info{
+
+                    .blue-dot{
+                        height: 7px;
+                        width: 7px;
+                        border-radius: 50%;
+                        background-color: #39B6E3;
+                        margin-left: -3px;
+                    }
+                    .vertical-bar{
+                        height: 29px;
+                        width: 1px;
+                        background-color: #39B6E3;
+                    }
+                    .subtitle{
+                        img{
+                            width: 50px;
+                        }
+                    }
+                    .flight{
+                        .total-time{
+                            font-size: 14px;
+                            color: #3B4149;
+                        }
+                        .flight-time{
+                            font-size: 17px;
+                            color: #000000;
+                        }
+                       
+                    }
+                    .journey-duration{
+                        color: #3B4149;
+                        font-size: 16px;
+                    }
+                    .flight-connection{
+                        background: #F4F4F4;
+                        border-radius: 4px;
+                        font-size: 14px;
+                    }
+                }
+            }
+            .right{
+                background: #035990;
+                font-style: normal;
+                font-weight: normal;
+                line-height: normal;
+				color: #FFFFFF;
+				.title{
+					font-family: Arimo;
+					font-weight: bold;
+					font-size: 20px;
+					text-align: center;
+				}
+                .details, .price{
+                    height: 303px;
+                    // padding-bottom: 76px;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+                    
+                    .subtitle{
+                        font-family: Assistant;
+                        font-weight: bold;
+                        font-size: 18px;
+                        text-align: left;
+                    }
+                    p{
+                        font-family: Assistant;
+                        font-size: 16px;
+                    }
+                    u{
+                        cursor: pointer;
+                    }
+                }
+                .price{
+                    border: none;
+                    padding-bottom: 20px;
+                    height: auto;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 992px){
+    .modal{
+        .modal-dialog {
+            max-width: 700px;
+		}
+		.modal-body{
+            
+            .left{
+				.subtitle{
+					font-size: 14px;
+				}
+			}
+		}    
+	}
+}
+
+@media (max-width: 767px){
+    .modal{
+        .modal-dialog {
+            max-width: 574px;
+		}
+		.modal-body{
+
+			.left{
+				.outbound{
+					// padding: 0 20px;
+					height: initial !important;
+					
+				}
+			}
+
+			.right{
+				.title{
+					text-align: left !important;
+				}
+				 .details{
+					height: initial !important;
+					border: none !important;
+					border-right: 1px solid rgba(255, 255, 255, 0.7) !important; 		
+				 }
+			}
+		}
+	}
+}

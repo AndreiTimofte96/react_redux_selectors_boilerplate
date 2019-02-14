@@ -1,0 +1,76 @@
+.travaxy-join-banner{
+  position: relative;
+  font-family: Assistant;
+  font-style: normal;
+  font-weight: bold;
+  line-height: normal;
+  margin: 0 -15px;
+  background-color: #035990;
+  background-image: url('../../images/circles.svg');
+  background-position-x: calc(100% + 150px);
+  background-size: contain;
+  .circles{
+      position: absolute;
+      top: 0;
+      right: 0;
+  }
+  .title{
+      font-size: 28px;
+      text-align: center;
+      color: #FFFFFF;
+  }
+  .inline {
+      display: inline-block;
+      margin: 0;
+  }
+  button.sign-up{
+      font-size: 18px;
+      text-align: center;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      border: 2px solid #FFFFFF;
+      border-radius: 21.3095px;
+      padding: 10px 50px;
+      &:focus{
+        outline: none;
+      }
+  }
+  .inline-text{
+      font-weight: normal;
+      font-size: 18px;
+      color: #FFFFFF;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1329px)  {
+  .travaxy-join-banner{
+    background-image: url('../../images/circles-medium.svg');
+    background-position-x: calc(100% + 100px);
+  }
+}
+@media(max-width: 767px){
+  .travaxy-join-banner {
+    background-image: url('../../images/circles-small.svg');
+    background-position-x: calc(100%);
+
+    .title{
+      font-size: 24px;
+    }
+    .inline {
+      display: block;
+    }
+    br {
+      display: none;
+    }
+  }
+}
+@media(max-width: 576px){
+  .travaxy-join-banner {      
+    background-image: url('../../images/circles-very-small.svg');
+    background-position-x: calc(100% + 50px);
+  }
+}
+            
+
+
+
