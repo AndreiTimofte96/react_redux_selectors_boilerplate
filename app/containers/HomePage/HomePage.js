@@ -6,36 +6,61 @@ export default class HomePage extends React.Component {
   constructor() {
     super();
     this.state = {
-      inputValue: ''
+      isPending: false,
+      isSuccess: false,
+      serverData: null
     };
-
-
-    this.onInputChange = this.onInputChange.bind(this);
   }
 
-  componentWillReceiveProps(props) {
-    const _state = this.state;
-    _state.inputValue = props.value;
-    this.setState(_state);
+  componentDidMount() {
+    this.props.getServerData();
   }
 
-  onInputChange(evt) {
-    if (evt.target.value.length >= 3) {
-      this.props.changeInputValue(evt.target.value);
+  // componentDidUpdate(prevProps) {
+  //   const _state = this.state;
+  //   const { isPending, isSuccess, serverData } = this.props;
+  //   if (isPending !== prevProps.isPending) {
+  //     _state.isPending = isPending;
+  //       this.setState(_state); //eslint-disable-line
+  //   }
+
+  //   if (isSuccess !== prevProps.isSuccess && isSuccess
+  //     && serverData !== prevProps.serverData && serverData) {
+  //     _state.serverData = serverData;
+  //       this.setState(_state); //eslint-disable-line
+  //   }
+  // }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    const { isPending, isSuccess, serverData } = prevState;
+    if (isPending !== nextProps.isPending) {
+      return {
+        isPending: nextProps.isPending
+      };
     }
-  }
 
+    if (isSuccess !== nextProps.isSuccess && serverData !== nextProps.serverData) {
+      return {
+        isSuccess: nextProps.isSuccess,
+        serverData: nextProps.serverData
+      };
+    }
+    return null;
+  }
 
   render() {
-    const { inputValue } = this.state;
+    const { isPending, serverData } = this.state;
+    console.log(this.state);
     return (
-      <div className="container-fluid"><br /><br /><br /><br />
+      <div className="container-fluid">
         <div className="row">
-          <section className="izi-content p-0 py-2 p-sm-5">
-            <input type="text" onChange={this.onInputChange} placeholder="type something" />
-            This is from redux: {inputValue}
+          <section className="p-0 py-2 p-sm-5">
+
+            {serverData && serverData.a.b}
+            {serverData && serverData.c}
+            {serverData && this.props.serverData.d}
           </section>
-          <br /><br /><br /><br /><br /><br /><br />
+          {isPending && 'PENDING'}
         </div>
       </div>
     );

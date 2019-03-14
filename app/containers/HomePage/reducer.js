@@ -1,14 +1,23 @@
-import { CHANGE_INPUT_VALUE } from './constants';
+import { GET_SERVER_DATA_PENDING, GET_SERVER_DATA_SUCCESS } from './constants';
 // The initial state of the App
 const initialState = {
-  value: ''
+  serverData: null,
+  isPending: false,
+  isSuccess: false
 };
 
 function changeValueReducer(state = initialState, action) {
   switch (action.type) {
-    case CHANGE_INPUT_VALUE:
+    case GET_SERVER_DATA_PENDING:
       return {
-        value: action.value
+        ...state,
+        isPending: action.isPending
+      };
+    case GET_SERVER_DATA_SUCCESS:
+      return {
+        ...state,
+        isSuccess: action.isSuccess,
+        serverData: action.serverData
       };
     default:
       return state;

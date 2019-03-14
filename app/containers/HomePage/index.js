@@ -2,17 +2,19 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
 import injectReducer from 'utils/injectReducer';
-import { changeInputValue } from './actions';
-import { makeChangeValue } from './selectors';
+import { getServerData } from './actions';
+import { makeIsPending, makeIsSuccess, makeServerData } from './selectors';
 import reducer from './reducer';
 import HomePage from './HomePage';
 
 const mapDispatchToProps = (dispatch) => ({
-  changeInputValue: (value) => changeInputValue(value)(dispatch)
+  getServerData: () => getServerData()(dispatch)
 });
 
 const mapStateToProps = createStructuredSelector({
-  value: makeChangeValue(),
+  isPending: makeIsPending(),
+  isSuccess: makeIsSuccess(),
+  serverData: makeServerData()
 });
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);

@@ -2,12 +2,26 @@ import { createSelector } from 'reselect';
 
 const selectValue = (state) => state.homePAGE123;
 
-const makeChangeValue = () => createSelector(
+const makeIsPending = () => createSelector(
   selectValue,
-  (currentState) => currentState.value
+  (currentState) => currentState.isPending
 );
+
+const makeIsSuccess = () => createSelector(
+  selectValue,
+  (currentState) => currentState.isSuccess
+);
+
+
+const makeServerData = () => createSelector(
+  selectValue,
+  (currentState) => currentState.serverData
+);
+
 
 export {
   selectValue,
-  makeChangeValue,
+  makeIsPending,
+  makeIsSuccess,
+  makeServerData
 };
